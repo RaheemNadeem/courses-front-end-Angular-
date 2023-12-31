@@ -1,0 +1,25 @@
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1em
+}
+.image-container{
+    width: max-content;
+    flex-basis: 200;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #00000030;
+}
+.image-container img {
+    width: 18em;
+    border-radius: 8px;
+    border:1em solid transparent;
+    transition: all 0.3s;
+    
+}
+
+.image-container img:hover{
+    border: 1em solid #f8f1f1
+}
+

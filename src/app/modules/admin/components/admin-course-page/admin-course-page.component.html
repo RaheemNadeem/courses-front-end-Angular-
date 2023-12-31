@@ -1,1 +1,28 @@
-<p>admin-course-page works!</p>
+<div class="container">
+    <form class="form" [formGroup]="addCourseForm">
+        <div class="input-group">
+            <label for="name">Name <span class="red">*</span></label>
+            <input type="text" formControlName="name">
+        </div>
+
+        <div class="input-group">
+            <label for="imageUrl">Image Link <span class="red">*</span></label>
+            <input type="text" formControlName="imageUrl">
+        </div>
+
+        <div class="input-group">
+            <label for="cloudUrl">Cloud Link <span class="red">*</span></label>
+            <input type="text" formControlName="cloudUrl">
+        </div>
+
+        <div class="input-group">
+            <label for="category"> Category <span class="red">*</span></label>
+            <input type="text" formControlName="category">
+        </div>
+
+        <button [disabled]="addCourseForm.invalid || loading" class="button" (click)="getCourses()">
+            <span *ngIf="!loading">Submit</span>
+            <span *ngIf="loading">Loading</span>
+        </button>
+    </form> 
+</div>

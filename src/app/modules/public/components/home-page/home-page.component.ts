@@ -10,6 +10,8 @@ export class HomePageComponent implements OnInit {
 
   coursesData: any
 
+  loading:boolean
+
   constructor(private publicService: PublicService) { }
 
   ngOnInit(): void {
@@ -17,13 +19,15 @@ export class HomePageComponent implements OnInit {
   }
 
   getCoursesData() {
+    this.loading =true
     this.publicService.getCoursesData().subscribe({
       next: res => {
         this.coursesData = res
+        this.loading = false
       },
 
       error: error => {
-
+        this.loading = false
       }
     });
   }
