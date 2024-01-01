@@ -20,9 +20,11 @@
             <input type="text" formControlName="category">
         </div>
 
-        <button [disabled]="addCourseForm.invalid || loading" class="button" (click)="getCourses()">
+        <button [disabled]="addCourseForm.invalid || loading" class="button" (click)="addCourse()">
             <span *ngIf="!loading">Submit</span>
             <span *ngIf="loading">Loading</span>
         </button>
     </form> 
 </div>
+
+<app-home-page [isAdmin]="true" (deleteEvent)="deleteCourse($event)" #courses></app-home-page>

@@ -9,7 +9,8 @@ export class PublicService {
 
   constructor(private http:HttpClient) { }
 
-  getCoursesData(){
-    return this.http.get(`${environment.apiUrl}/courses`);
+  getCoursesData(category:number){
+    let queryParam = category ? `?category=${category}`:''
+    return this.http.get(`${environment.apiUrl}/courses${queryParam}`);
   }
 }

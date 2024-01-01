@@ -1,5 +1,22 @@
-<div class="container" *ngIf="!loading">
-    <div class="image-container" *ngFor="let course of coursesData">
-        <img src="{{course.imageUrl}}" alt="">
+<div *ngIf="coursesData && coursesData.length > 0 && !loading">
+    <div class="container" *ngIf="!loading">
+        <div class="image-container" *ngFor="let course of coursesData">
+            <a href="{{course.cloudUrl}}" target="_blank">
+                <img src="{{course.imageUrl}}" alt="">
+            </a>
+            <div *ngIf="isAdmin" class="delete-button-container">
+                <button (click)="deleteEvent.emit(course.id)" class="delete-button"> 
+                    Delete
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+        </div>
     </div>
 </div>
+
+<div *ngIf="coursesData.length == 0 && !loading" class="no-data-found">
+    <h2>No Data Found</h2>
+</div>
+
+<app-loader [width]="4" *ngIf="loading">
+</app-loader>

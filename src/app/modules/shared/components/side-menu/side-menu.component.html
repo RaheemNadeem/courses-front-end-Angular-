@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="link-container" *ngFor="let link of sideMenuLinks" [routerLink]="'/home/{{link.category}}'">
+    <div class="link-container" *ngFor="let link of sideMenuLinks" (click)="changeCategory(link.category)">
         <i class="{{link.iconClass}}"></i>
         <p>{{link.title}}</p>
     </div>
